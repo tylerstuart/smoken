@@ -1,7 +1,11 @@
 Smoken::Application.routes.draw do
-  match '/help',   :to => 'pages#help'
-  match '/about',  :to => 'pages#about'
-  root       :to => 'pages#home'
+  get "users/new"
+
+  match '/signup',  :to =>'users#new'
+
+  match '/help',   :to => 'static_pages#help'
+  match '/about',  :to => 'static_pages#about'
+  root       :to => 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
