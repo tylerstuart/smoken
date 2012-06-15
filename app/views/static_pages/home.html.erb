@@ -1,4 +1,15 @@
 <% provide(:title, 'Home') %>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+    </aside>
+  </div>  
+<% else %>
+
 <h1>Smoken Recipes</h1>
 <p>Home page for smoken recipes. Not a member <%= link_to "Sign up now!", signup_path %>
 </p>
+<% end %>

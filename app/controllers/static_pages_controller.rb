@@ -1,7 +1,7 @@
 
 class StaticPagesController < ApplicationController
   def home
-  	@title = "Home"
+  	@recipe = current_user.recipes.build if signed_in?
   end
 
   def help
