@@ -1,9 +1,8 @@
-<%= provide(:title, 'Sign up') %>
-<h1>New Recipe</h1>
-
+<% provide(:title, "Edit user") %> 
+<h1>Update your Recipe</h1>
 
   <%= form_for(@recipe) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+      <%= render 'shared/error_messages', object: f.object %>
 
     <div class="field">
       <%= f.label :recipe_name %>:</br>
@@ -30,6 +29,9 @@
       <%= f.text_field :cook_time %>
     </div>
     <div class="actions">
-      <%= f.submit "Create recipe", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Edit recipe", class: "btn btn-large btn-primary" %>
     </div>
+
+
+
   <% end %>

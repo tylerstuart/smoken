@@ -1,6 +1,11 @@
 <h1>Recipes</h1>
 <div class="span8">
-      <ol class="recipes">
-        <%= @recipe.recipe_name %>
-      </ol>
+      <ul class="field">
+        <%= @recipe.recipe_name %></br>
+        <%= @recipe.description %></br>
+        <%= @recipe.ingredients %></br>
+        <%= @recipe.directions %></br>
+        <%= @recipe.prep_time %></br>
+        <%= @recipe.cook_time %></br>
+      </ul>
 </div>

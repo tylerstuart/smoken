@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
-  before_filter :signed_in_user
+  before_filter :correct_user, only: [:edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update, :destroy, :new, :create]
+
 
   def create
   	@recipe = current_user.recipes.build(params[:recipe])
@@ -24,6 +26,39 @@ class RecipesController < ApplicationController
 	end
 
 	def index 
-		@recipe = Recipe.paginate(page: params[:page])
+		@recipes = Recipe.paginate(page: params[:page])
 	end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update_attributes(params[:recipe])
+      flash[:success] = "Recipe Updated"
+      redirect_to @recipe
+    else
+      render 'edit'
+    end
+  end
+
+    private
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+      redirect_to signin_path, notice: "please sign in."
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
+
 end

@@ -1,7 +1,9 @@
+<% provide(:title, 'All Recipes') %>
 <h1>Recipes</h1>
 <div class="span8">
+	<% @recipes.each do |recipe| %>
       <ol class="recipes">
-        <%= render @recipes %>
+      	<%= link_to recipe.recipe_name, recipe %>
       </ol>
-      <%= will_paginate @recipes %>
+      <% end %>
 </div>

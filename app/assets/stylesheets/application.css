@@ -10,14 +10,19 @@
  *
  *= require_self
  *= require_tree .
- */
+*/
 
- .container {
-  width: 710px;
+.container {
+  width: 96%;
+  min-width: 740px;
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: 0 auto;
+  position: static;
 }
 
 body {
-  background: #FF0000;
+  background: #B2B2B2;
 }
 
 header {
@@ -43,7 +48,7 @@ section h1 {
 /* Links */
 
 a {
-  color: #09c;
+  color: #CD0000;
   text-decoration: none;
 }
 
@@ -65,7 +70,10 @@ nav {
 nav {
   background-color: white;
   padding: 0 0.7em;
-  white-space: nowrap;
+    -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 nav ul {
@@ -92,11 +100,30 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-.round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+/* Sign up button */
+
+a.signup_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 190px;
+  color: ##FF3232;
+  background: #8A8A8A;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
 }
+
+/* round corners */
+
+.round {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* footer */
 
 footer {
   text-align: center;
@@ -110,45 +137,155 @@ footer nav {
   float: none;
 }
 
-/* miscellaneous */
+/* User page */
 
-.debug_dump {
-  clear: both;
-  float: left;
+table.profile {
   width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+  margin-bottom: 0;
 }
 
-/* forms */
+td.main {
+  width: 80%;
+  padding: 1em;
+}
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 90%;
-  padding: 10px;
-  height: auto;
-  margin-bottom: 15px;
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+.field_with_errors {
+  margin-top: 10px;
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.field_with_errors label {
+  color: #fff;
 }
 
 #error_explanation {
-  color: #f00;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
 }
 
-/* users index */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
 
-.users {
+#error_explanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
   list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:last-child {
-      border-bottom: 1px solid $grayLighter;
-    }
-  }
 }
+
+h1.recipe {
+  margin-bottom: 0.3em;
+}
+
+table.recipes {
+  margin-top: 1em;
+}
+
+table.recipes tr {
+  height: 70px;
+}
+
+table.recipes tr  {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  width: 50px;
+}
+
+table.recipes tr td.recipe {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+table.recipes tr td.recipe span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666;
+}
+
+div.user_info img {
+  padding-right: 0.1em;
+}
+
+div.user_info a {
+  text-decoration: none;
+}
+
+div.user_info span.user_name {
+
+}
+
+div.user_info span.recipes {
+  font-size: 80%;
+}
+
+form.new_recipe {
+  margin-bottom: 2em;
+}
+
+form.new_recipe textarea {
+  height: 4em;
+  margin-bottom: 0;
+}
+
+/* dropdown css */ 
+
+
+.dropdown {   
+  white-space: nowrap; 
+  margin: 0;
+}
+
+.dropdown dt { 
+  font-weight:bold; 
+  cursor:pointer; 
+  margin: 0;
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown dd {position:absolute; overflow:hidden; width:208px; display:none; background:#fff; z-index:200; opacity:0; margin: 0;}
+.dropdown ul {width:204px; border:2px solid #9ac1c9; list-style:none; border-top:none;}
+.dropdown li {display:inline}
+.dropdown a, .dropdown a:active, .dropdown a:visited {display:block; padding:5px; color:#333; text-decoration:none; background:#eaf0f2; width:194px}
+.dropdown a:hover {background:#d9e1e4; color:#000}
+.dropdown .underline {border-bottom:1px solid #b9d6dc}
