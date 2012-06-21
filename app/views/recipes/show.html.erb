@@ -8,4 +8,9 @@
         <%= @recipe.prep_time %></br>
         <%= @recipe.cook_time %></br>
       </ul>
+
+      <% if recipe_creator %>
+        <%= link_to "Edit", edit_recipe_path %>
+      <% end %> 
+
 </div>

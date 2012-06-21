@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :recipe_creater, only: [:edit, :update]
   before_filter :signed_in_user, only: [:edit, :update, :destroy, :new, :create]
 
 
@@ -52,10 +52,9 @@ class RecipesController < ApplicationController
       end
     end
 
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
-    end
+     def recipe_creater
+      redirect_to(recipe_path) unless recipe_creator
+     end
 
     def admin_user
       redirect_to(root_path) unless current_user.admin?
