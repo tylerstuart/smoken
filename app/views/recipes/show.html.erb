@@ -1,11 +1,17 @@
-<h1>Recipes</h1>
+<h1><%= image_tag @recipe.image_url.to_s %>   <%= @recipe.recipe_name %></h1>
 <div class="span8">
       <ul class="field">
+        <h3>Recipe Name:</h3>
         <%= @recipe.recipe_name %></br>
+        <h3>Description:</h3>
         <%= @recipe.description %></br>
+        <h3>Ingredients:</h3>
         <%= @recipe.ingredients %></br>
+        <h3>Dirctions:</h3>
         <%= @recipe.directions %></br>
+        <h3>Preperation Time:</h3>
         <%= @recipe.prep_time %></br>
+        <h3>Cook Time:</h3>
         <%= @recipe.cook_time %></br>
       </ul>
 
