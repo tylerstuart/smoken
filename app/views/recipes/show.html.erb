@@ -15,8 +15,10 @@
         <%= @recipe.cook_time %></br>
       </ul>
 
+      <% if signed_in? %>
         <% if recipe_creator?(@recipe) %>
         <%= link_to "Edit", edit_recipe_path %>
         <% end %>
+      <% end%>
 
 </div>
