@@ -53,7 +53,8 @@ class RecipesController < ApplicationController
     end
 
      def recipe_creater
-      redirect_to(recipe_path) unless recipe_creator
+      @recipe = Recipe.find(params[:id])
+      redirect_to(recipe_path) unless recipe_creator?(@recipe)
      end
 
     def admin_user

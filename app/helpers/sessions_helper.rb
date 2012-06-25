@@ -20,8 +20,8 @@ module SessionsHelper
 		user == current_user
 	end
 
-	def recipe_creator
-		Recipe.find_by_user_id(params[:id]) && User.find(params[:id])
+	def recipe_creator?(recipe)
+		current_user.id == @recipe.user_id
 	end
 
 	def signed_in_user
