@@ -21,8 +21,9 @@ class RecipesController < ApplicationController
   end
 
 	def show
-#		@recipe = @user.recipes.paginate(page: params[:page])
-        @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
+    @comments = @recipe.comments.paginate(page: params[:page])
+    @comment = current_user.comments.build if signed_in?
 	end
 
 	def index 

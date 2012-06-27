@@ -100,6 +100,14 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
+
 /* Sign up button */
 
 a.signup_button {
@@ -201,12 +209,15 @@ div.field, div.actions {
   list-style: square;
 }
 
-ul.users {
+.pagination {
   margin-top: 1em;
+  list-style: none;
+  display: inline;
 }
 
-.users li {
-  list-style: none;
+.pagination li {
+  list-style-type: none;
+  display: inline;
 }
 
 h1.recipe {
@@ -289,3 +300,15 @@ form.new_recipe textarea {
 .dropdown a, .dropdown a:active, .dropdown a:visited {display:block; padding:5px; color:#333; text-decoration:none; background:#eaf0f2; width:194px}
 .dropdown a:hover {background:#d9e1e4; color:#000}
 .dropdown .underline {border-bottom:1px solid #b9d6dc}
+
+/* comments */ 
+
+.usercomments {
+  margin: 15px 0 0 0;
+  padding-top: 15px;
+  border-bottom: #999999 solid medium;
+}
+
+
+
+

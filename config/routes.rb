@@ -1,8 +1,10 @@
 Smoken::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :recipes   
-
+  
+  resources :recipes do
+    resources :comments, only: [:create, :destroy]
+  end
   match '/newrecipe', to: 'recipes#new'
 
   match '/signup',  to: 'users#new'

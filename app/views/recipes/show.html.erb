@@ -1,5 +1,5 @@
 <h1><%= image_tag @recipe.image_url.to_s %>   <%= @recipe.recipe_name %></h1>
-<div class="span8">
+<div class="field">
       <ul class="field">
         <h3>Recipe Name:</h3>
         <%= @recipe.recipe_name %></br>
@@ -19,6 +19,27 @@
         <% if recipe_creator?(@recipe) %>
         <%= link_to "Edit", edit_recipe_path %>
         <% end %>
-      <% end%>
-
+      <% end %>
 </div>
+<div class="usercomments">
+  <h3>Comments (<%= @recipe.comments.count %>)</h3>
+  <section>
+    <%= render 'shared/comment_form'  %>
+  </section>
+    <ol class="comments" >
+      <% @comments.each do |comment| %>
+        <div class="commenthead">               
+          <%= comment.user.name %> - <%=time_ago_in_words(comment.created_at)%> ago 
+            <% # display delete link only for comments written by this particular user %>
+              <% if signed_in? and comment.user_id == current_user.id %>
+                <span><%= link_to 'delete', recipe_comment_path(@recipe, comment), :confirm => 'Are you sure?', :method => :delete, :class => "" %></span>
+              <% end %> 
+        </div>
+        <div>
+          <%= comment.content %>
+        </div>
+      <% end %>
+    </ol>
+    <%= will_paginate(@comments) %>
+</div>
+
