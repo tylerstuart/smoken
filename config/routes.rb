@@ -4,6 +4,7 @@ Smoken::Application.routes.draw do
   
   resources :recipes do
     resources :comments, only: [:create, :destroy]
+    resources :ratings, only: [:create, :update, :destroy]
   end
   match '/newrecipe', to: 'recipes#new'
 

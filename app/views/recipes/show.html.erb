@@ -1,4 +1,10 @@
-<h1><%= image_tag @recipe.image_url.to_s %>   <%= @recipe.recipe_name %></h1>
+<h1><%= image_tag @recipe.image_url.to_s %>   <%= @recipe.recipe_name %>
+<ul class="stars floatstars">
+  <li class="yellowstars" style="width: <%= @recipe.avg_rating * 25 %>px !important;"></li>
+  <li class="text"><%= @recipe.avg_rating %> average from <%= pluralize(@recipe.count_ratings, "vote") %></li>
+</ul>
+</h1>
+
 <div class="field">
       <ul class="field">
         <h3>Recipe Name:</h3>
@@ -25,6 +31,9 @@
   <h3>Comments (<%= @recipe.comments.count %>)</h3>
   <section>
     <%= render 'shared/comment_form'  %>
+  </section>
+  <section id="rating">
+    <%= render 'shared/rating' %>
   </section>
     <ol class="comments" >
       <% @comments.each do |comment| %>

@@ -309,6 +309,34 @@ form.new_recipe textarea {
   border-bottom: #999999 solid medium;
 }
 
+/* stars */
+
+.stars * { 
+  margin: 0; 
+  padding: 0; 
+  list-style: none;
+}
+
+.stars { 
+  height: 25px; 
+  width: 125px; 
+}
+
+.stars .yellowstars { 
+  height: 25px; 
+  width: 0px; 
+  background: url('/assets/star.png') left repeat-x; 
+} 
+
+.stars .text { 
+  text-align: right; 
+  font-size: 10px; 
+}
+
+.floatstars { 
+  float: right; 
+}
+
 
 
 

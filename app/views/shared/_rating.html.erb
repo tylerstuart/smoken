@@ -1,0 +1,16 @@
+<% if signed_in? %>
+    <%= form_for [@recipe, @rating_currentuser] do |f| %>
+        <div id="ratingbox">
+            <ul id="ratingbuttons">
+                <li><%= f.radio_button :stars, "5" %><span>Excellent</span></li>
+                <li><%= f.radio_button :stars, "4" %><span>Very Good</span></li>
+                <li><%= f.radio_button :stars, "3" %><span>Good</span></li>
+                <li><%= f.radio_button :stars, "2" %><span>Average</span></li>
+                <li><%= f.radio_button :stars, "1" %><span>Poor</span></li>                     
+            </ul>
+            <div class="center"><%= f.submit "Rate this article", :class => "awesome custom red" %></div>
+        </div>
+    <% end %>
+<% else %>
+    <div id="ratingbox"><%= link_to "Sign in", signin_path %> to rate this article</div>
+<% end %>   

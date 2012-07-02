@@ -4,6 +4,9 @@
 	<% @recipes.each do |recipe| %>
       <ol class="recipes">
       	<%= link_to recipe.recipe_name, recipe %>
+      	<ul class="stars floatstars">
+            <li class="yellowstars" style="width: <%= recipe.avg_rating * 25 %>px !important;"></li>
+        </ul>
       </ol>
       <% end %>
 </div>

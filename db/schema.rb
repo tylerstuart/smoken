@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626212958) do
+ActiveRecord::Schema.define(:version => 20120702165133) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -23,6 +23,28 @@ ActiveRecord::Schema.define(:version => 20120626212958) do
 
   add_index "comments", ["recipe_id"], :name => "index_comments_on_recipe_id"
   add_index "comments", ["user_id", "created_at"], :name => "index_comments_on_user_id_and_created_at"
+
+  create_table "rates", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recipe_id"
+    t.string   "rateable_type"
+    t.integer  "stars"
+    t.string   "dimension"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "rates", ["user_id", "recipe_id"], :name => "index_rates_on_user_id_and_recipe_id"
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "recipe_id",  :null => false
+    t.integer  "stars"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "ratings", ["recipe_id"], :name => "index_ratings_on_recipe_id"
 
   create_table "recipes", :force => true do |t|
     t.string   "recipe_name"

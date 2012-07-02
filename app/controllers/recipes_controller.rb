@@ -24,6 +24,18 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @comments = @recipe.comments.paginate(page: params[:page])
     @comment = current_user.comments.build if signed_in?
+
+    if signed_in?
+      @rating_currentuser = @recipe.ratings.find_by_user_id(current_user.id)
+      unless @rating_currentuser 
+        @rating_currentuser = current_user.ratings.new
+      end
+    end
+  
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @recipe }
+    end
 	end
 
 	def index 
@@ -61,5 +73,4 @@ class RecipesController < ApplicationController
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
-
 end
